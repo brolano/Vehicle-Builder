@@ -3,7 +3,6 @@ import inquirer from "inquirer";
 import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
-import Wheel from "./Wheel.js";
 // define the Cli class
 class Cli {
     // TODO: Update the constructor to accept Truck and Motorbike objects as well
@@ -220,9 +219,7 @@ class Cli {
             },
         ])
             .then((answers) => {
-            const rearWheel = new Wheel(parseInt(answers.rearWheelDiameter), answers.rearWheelBrand);
-            const frontWheel = new Wheel(parseInt(answers.frontWheelDiameter), answers.frontWheelBrand);
-            const motorbike = new Motorbike(Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), [frontWheel, rearWheel]);
+            const motorbike = new Motorbike(Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), []);
             // TODO: Use the answers object to pass the required properties to the Motorbike constructor
             // TODO: push the motorbike to the vehicles array
             this.vehicles.push(motorbike);
